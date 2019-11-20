@@ -1,0 +1,6 @@
+# Project exclude paths
+/foodie-shop-api/target/
+/foodie-shop-common/target/
+/foodie-shop-mapper/target/
+/foodie-shop-pojo/target/
+/foodie-shop-service/target/
