@@ -9,8 +9,8 @@
         <module name="foodie-shop-api" />
         <module name="foodie-shop-mapper" />
         <module name="foodie-shop-common" />
-        <module name="foodie-shop-service" />
         <module name="foodie-shop-pojo" />
+        <module name="foodie-shop-service" />
       </profile>
     </annotationProcessing>
   </component>
