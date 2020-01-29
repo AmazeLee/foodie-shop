@@ -14,7 +14,7 @@ import io.swagger.annotations.ApiModelProperty;
 public class UserBO {
 
     @ApiModelProperty(value = "用户名")
-    private String userName;
+    private String username;
 
     @ApiModelProperty(value = "密码")
     private String password;
@@ -22,12 +22,12 @@ public class UserBO {
     @ApiModelProperty(value = "确认密码")
     private String confirmPassword;
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {

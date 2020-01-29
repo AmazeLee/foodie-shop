@@ -43,10 +43,10 @@ public class PassportController {
     }
 
     @ApiOperation(value = "注册用户",notes = "注册用户",httpMethod = "GET")
-    @PostMapping("/register")
+    @PostMapping("/regist")
     public MyJSONResult register(@RequestBody UserBO userBO) throws Exception {
 
-        String userName = userBO.getUserName();
+        String userName = userBO.getUsername();
         String password = userBO.getPassword();
         String confirmPassword = userBO.getConfirmPassword();
 

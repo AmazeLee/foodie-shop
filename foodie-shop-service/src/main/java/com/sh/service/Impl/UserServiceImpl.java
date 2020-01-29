@@ -53,11 +53,11 @@ public class UserServiceImpl implements UserService {
         String userId = sid.nextShort();
         Users user = new Users();
         user.setId(userId);
-        user.setUsername(userBO.getUserName());
+        user.setUsername(userBO.getUsername());
         // 加密设置密码
         user.setPassword(MD5Utils.getMD5Str(userBO.getPassword()));
         // 默认用户昵称为用户名
-        user.setNickname(userBO.getUserName());
+        user.setNickname(userBO.getUsername());
         // 默认头像
         user.setFace(USER_FACE);
         // 设置默认的生日
