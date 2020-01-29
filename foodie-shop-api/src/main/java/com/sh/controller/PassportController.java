@@ -3,6 +3,8 @@ package com.sh.controller;
 import com.sh.pojo.bo.UserBO;
 import com.sh.service.UserService;
 import com.sh.utils.MyJSONResult;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +15,7 @@ import javax.annotation.Resource;
  * @Description
  * @Date 2019/12/7 23:19
  **/
+@Api(value = "注册登录",tags = {"用于注册登录的相关接口"})
 @RestController
 @RequestMapping("passport")
 public class PassportController {
@@ -20,6 +23,7 @@ public class PassportController {
     @Resource
     private UserService userService;
 
+    @ApiOperation(value = "用户名是否存在",notes = "用户名是否存在",httpMethod = "GET")
     @GetMapping("/usernameIsExist")
     public MyJSONResult usernameIsExist(@RequestParam String username){
 
@@ -38,6 +42,7 @@ public class PassportController {
         return MyJSONResult.ok();
     }
 
+    @ApiOperation(value = "注册用户",notes = "注册用户",httpMethod = "GET")
     @PostMapping("/register")
     public MyJSONResult register(@RequestBody UserBO userBO) throws Exception {
 
