@@ -1,4 +1,4 @@
-package com.sh.service.Impl;
+package com.sh.service.impl;
 
 import com.sh.mapper.StuMapper;
 import com.sh.pojo.Stu;
