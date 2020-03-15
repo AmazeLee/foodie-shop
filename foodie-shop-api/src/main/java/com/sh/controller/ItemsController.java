@@ -4,9 +4,11 @@ import com.sh.pojo.Items;
 import com.sh.pojo.ItemsImg;
 import com.sh.pojo.ItemsParam;
 import com.sh.pojo.ItemsSpec;
+import com.sh.pojo.vo.CommentLevelCountsVO;
 import com.sh.pojo.vo.ItemInfoVO;
 import com.sh.service.ItemService;
 import com.sh.utils.MyJSONResult;
+import com.sh.utils.PagedGridResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -19,7 +21,7 @@ import java.util.List;
 @Api(value = "商品接口", tags = {"商品信息展示的相关接口"})
 @RestController
 @RequestMapping("items")
-public class ItemsController {
+public class ItemsController extends BaseController{
 
     @Autowired
     private ItemService itemService;
@@ -46,6 +48,53 @@ public class ItemsController {
         itemInfoVO.setItemParams(itemsParam);
 
         return MyJSONResult.ok(itemInfoVO);
+    }
+
+    @ApiOperation(value = "查询商品评价等级", notes = "查询商品评价等级", httpMethod = "GET")
+    @GetMapping("/commentLevel")
+    public MyJSONResult commentLevel(
+            @ApiParam(name = "itemId", value = "商品id", required = true)
+            @RequestParam String itemId) {
+
+        if (StringUtils.isBlank(itemId)) {
+            return MyJSONResult.errorMsg(null);
+        }
+
+        CommentLevelCountsVO countsVO = itemService.queryCommentCounts(itemId);
+
+        return MyJSONResult.ok(countsVO);
+    }
+
+    @ApiOperation(value = "查询商品评论", notes = "查询商品评论", httpMethod = "GET")
+    @GetMapping("/comments")
+    public MyJSONResult comments(
+            @ApiParam(name = "itemId", value = "商品id", required = true)
+            @RequestParam String itemId,
+            @ApiParam(name = "level", value = "评价等级", required = false)
+            @RequestParam Integer level,
+            @ApiParam(name = "page", value = "查询下一页的第几页", required = false)
+            @RequestParam Integer page,
+            @ApiParam(name = "pageSize", value = "分页的每一页显示的条数", required = false)
+            @RequestParam Integer pageSize) {
+
+        if (StringUtils.isBlank(itemId)) {
+            return MyJSONResult.errorMsg(null);
+        }
+
+        if (page == null) {
+            page = 1;
+        }
+
+        if (pageSize == null) {
+            pageSize = COMMON_PAGE_SIZE;
+        }
+
+        PagedGridResult grid = itemService.queryPagedComments(itemId,
+                level,
+                page,
+                pageSize);
+
+        return MyJSONResult.ok(grid);
     }
 
 }
