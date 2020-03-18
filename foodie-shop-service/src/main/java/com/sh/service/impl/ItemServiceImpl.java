@@ -7,6 +7,7 @@ import com.sh.mapper.*;
 import com.sh.pojo.*;
 import com.sh.pojo.vo.CommentLevelCountsVO;
 import com.sh.pojo.vo.ItemCommentVO;
+import com.sh.pojo.vo.SearchItemsVO;
 import com.sh.service.ItemService;
 import com.sh.utils.DesensitizationUtil;
 import com.sh.utils.PagedGridResult;
@@ -145,5 +146,19 @@ public class ItemServiceImpl implements ItemService {
         grid.setTotal(pageList.getPages());
         grid.setRecords(pageList.getTotal());
         return grid;
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public PagedGridResult searchItems(String keywords, String sort, Integer page, Integer pageSize) {
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("keywords", keywords);
+        map.put("sort", sort);
+
+        PageHelper.startPage(page, pageSize);
+        List<SearchItemsVO> list = itemsMapperCustom.searchItems(map);
+
+        return setterPagedGrid(list, page);
     }
 }
