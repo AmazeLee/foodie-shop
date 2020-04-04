@@ -59,13 +59,10 @@
         </choose>
     </select>
 
-   <!--
-    &lt;!&ndash; k: 默认，代表默认排序，根据name&ndash;&gt;
-    &lt;!&ndash; c: 根据销量排序&ndash;&gt;
-    &lt;!&ndash; p: 根据价格排序&ndash;&gt;
-
-
-    <select id="searchItemsByThirdCat" parameterType="Map" resultType="com.imooc.pojo.vo.SearchItemsVO">
+    <!-- k: 默认，代表默认排序，根据name-->
+    <!-- c: 根据销量排序-->
+    <!-- p: 根据价格排序-->
+    <select id="searchItemsByThirdCat" parameterType="Map" resultType="com.sh.pojo.vo.SearchItemsVO">
         SELECT
             i.id as itemId,
             i.item_name as itemName,
@@ -101,7 +98,7 @@
     </select>
 
 
-    <select id="queryItemsBySpecIds" parameterType="List" resultType="com.imooc.pojo.vo.ShopcartVO">
+    <!--<select id="queryItemsBySpecIds" parameterType="List" resultType="com.sh.pojo.vo.ShopcartVO">
         SELECT
             t_items.id as itemId,
             t_items.item_name as itemName,
@@ -140,6 +137,6 @@
         and
             stock >= #{pendingCounts}
 
-    </update>-->
-
+    </update>
+-->
 </mapper>
