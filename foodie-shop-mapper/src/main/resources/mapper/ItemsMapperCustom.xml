@@ -98,7 +98,7 @@
     </select>
 
 
-    <!--<select id="queryItemsBySpecIds" parameterType="List" resultType="com.sh.pojo.vo.ShopcartVO">
+    <select id="queryItemsBySpecIds" parameterType="List" resultType="com.sh.pojo.vo.ShopcartVO">
         SELECT
             t_items.id as itemId,
             t_items.item_name as itemName,
@@ -126,7 +126,8 @@
             </foreach>
     </select>
 
-    <update id="decreaseItemSpecStock">
+
+    <!--<update id="decreaseItemSpecStock">
 
         update
             items_spec
