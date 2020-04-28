@@ -127,7 +127,7 @@
     </select>
 
 
-    <!--<update id="decreaseItemSpecStock">
+    <update id="decreaseItemSpecStock">
 
         update
             items_spec
@@ -139,5 +139,5 @@
             stock >= #{pendingCounts}
 
     </update>
--->
+
 </mapper>
