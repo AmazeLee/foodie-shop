@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
     @Resource
     public Sid sid;
 
-    private static final String USER_FACE = "https://c-ssl.duitang.com/uploads/item/201802/20/20180220165946_RiGPS.thumb.700_0.jpeg";
+    private static final String USER_FACE = "http://122.152.205.72:88/group1/M00/00/05/CpoxxFw_8_qAIlFXAAAcIhVPdSg994.png";
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
