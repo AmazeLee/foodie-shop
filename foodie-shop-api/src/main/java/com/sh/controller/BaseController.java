@@ -1,5 +1,9 @@
 package com.sh.controller;
 
+import com.sh.pojo.Orders;
+import com.sh.service.center.MyOrdersService;
+import com.sh.utils.MyJSONResult;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import java.io.File;
@@ -27,18 +31,20 @@ public class BaseController {
 //    public static final String IMAGE_USER_FACE_LOCATION = "/workspaces/images/foodie/faces";
 
 
-   /* @Autowired
+    @Autowired
     public MyOrdersService myOrdersService;
 
-    *//**
+    /**
      * 用于验证用户和订单是否有关联关系，避免非法用户调用
+     * @param userId
+     * @param orderId
      * @return
-     *//*
-    public IMOOCJSONResult checkUserOrder(String userId, String orderId) {
+     */
+    public MyJSONResult checkUserOrder(String userId, String orderId) {
         Orders order = myOrdersService.queryMyOrder(userId, orderId);
         if (order == null) {
-            return IMOOCJSONResult.errorMsg("订单不存在！");
+            return MyJSONResult.errorMsg("订单不存在！");
         }
-        return IMOOCJSONResult.ok(order);
-    }*/
+        return MyJSONResult.ok(order);
+    }
 }
