@@ -42,6 +42,7 @@ public class CenterUserController extends BaseController {
     @Autowired
     private FileUpload fileUpload;
 
+    // TODO 图片上传相关
     @ApiOperation(value = "用户头像修改", notes = "用户头像修改", httpMethod = "POST")
     @PostMapping("uploadFace")
     public MyJSONResult uploadFace(
